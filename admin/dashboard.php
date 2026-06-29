@@ -1,9 +1,22 @@
 <?php
 session_start();
+
 if(!isset($_SESSION["admin"])){
 header("Location: login.php");
 exit;
 }
+
+// ⛔ Timeout 15 min
+$timeout = 900;
+
+if(isset($_SESSION["last_activity"]) && (time() - $_SESSION["last_activity"] > $timeout)){
+session_destroy();
+header("Location: login.php?timeout=1");
+exit;
+}
+
+$_SESSION["last_activity"] = time();
+?>
 
 $donations = json_decode(file_get_contents("../data/donations.json"), true);
 $total = 0;
