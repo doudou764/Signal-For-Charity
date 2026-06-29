@@ -20,16 +20,25 @@ document.getElementById("bar").style.width = (total / objectif * 100) + "%";
 }
 
 async function donate(){
+
 const name = document.getElementById("name").value;
 const amount = document.getElementById("amount").value;
 const message = document.getElementById("message").value;
 
-await fetch("api/donate.php", {
+const res = await fetch("api/donate.php", {
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({name,amount,message})
 });
 
+const data = await res.json();
+
+if(data.error){
+alert("❌ " + data.error);
+return;
+}
+
+alert("❤️ Don envoyé !");
 loadDonations();
 }
 
