@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal For Charity</title>
+
+<link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+<header class="hero">
+  <h1>❤️ Signal For Charity</h1>
+  <p>Objectif : 1000€</p>
+
+  <div class="bar-container">
+    <div id="bar"></div>
+  </div>
+
+  <h2 id="total">0€ / 1000€</h2>
+</header>
+
+<section class="donate">
+
+<h2>Faire un don</h2>
+
+<input id="name" placeholder="Nom">
+<input id="amount" type="number" placeholder="Montant">
+<textarea id="message" placeholder="Message"></textarea>
+
+<button onclick="donate()">Donner ❤️</button>
+
+</section>
+
+<section class="list">
+<h2>Derniers dons</h2>
+<div id="donations"></div>
+</section>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
